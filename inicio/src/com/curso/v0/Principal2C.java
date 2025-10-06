@@ -9,7 +9,7 @@ public class Principal2C {
 		StringBuilder sb = new StringBuilder("Hola"); //MUTABLES
 		
 		cadena = transforma(x,cadena,sb);
-		
+		//Elimina método transforma()
 		System.out.println("x: "+x); //10
 		System.out.println("cadena: "+cadena); //Hello World
 		System.out.println("sb: "+sb); //Hola Mundo
