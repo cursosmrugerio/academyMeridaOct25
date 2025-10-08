@@ -16,7 +16,7 @@ public class Principal {
 		listObjects.add(new Figura());
 		listObjects.add(new Circulo());
 		listObjects.add(new Cuadrado());
-		//showObjects(listObjects); //SI COMPILA
+		showObjects(listObjects); //SI COMPILA
 		showUnbunded(listObjects); //SI COMPILA
 		
 		List<String> listString = new ArrayList<>();
@@ -51,6 +51,7 @@ public class Principal {
 	}
 
 	private static void showObjects(List<Object> listObjects) {
+		listObjects.add(new RuntimeException());
 		for (Object o:listObjects)
 			System.out.println(o.getClass().getSimpleName());
 	}

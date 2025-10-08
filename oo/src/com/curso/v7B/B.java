@@ -2,7 +2,7 @@ package com.curso.v7B;
 
 class A {
 	A() { 
-		print(); //EL DE B
+		print(); 
 	}
 
 	void print() { 
@@ -11,7 +11,7 @@ class A {
 }
 
 public class B extends A {
-	final int i = 4; 
+	int i = 4; 
 	
 	public static void main(String[] args){
 		A a = new B(); 
