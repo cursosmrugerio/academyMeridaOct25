@@ -16,59 +16,37 @@ public class Principal {
 		listObjects.add(new Figura());
 		listObjects.add(new Circulo());
 		listObjects.add(new Cuadrado());
-		//showObjects(listObjects); //SI COMPILA
-		showUnbunded(listObjects); //SI COMPILA
-		
+		List<Object> list1A = listObjects;
+		List<?> list1B = listObjects;
+	
 		List<String> listString = new ArrayList<>();
 		listString.add("Object");
 		listString.add("Hello");
 		listString.add("Hola");
 		listString.add("100");
-		//showObjects(listString); //NO COMPILA
-		showUnbunded(listString); //SI COMPILA
+		//List<Object> list2 = listString; //NO COMPILA
+		List<?> list2 = listString; 
 		
 		List<Figura> listFigura = new ArrayList<>();
 		listFigura.add(new Figura());
 		listFigura.add(new Circulo());
 		listFigura.add(new Cuadrado());
-		//showObjects(listFigura); //NO COMPILA
-		showUnbunded(listFigura); //SI COMPILA
+		List<?> list3 = listFigura;
 		
 		List<Circulo> listCirculo = new ArrayList<>();
 		listCirculo.add(new Circulo());
 		listCirculo.add(new Circulo());
 		listCirculo.add(new Circulo());
-		//showObjects(listCirculo); //NO COMPILA
-		showUnbunded(listCirculo); //SI COMPILA
+		List<?> list4 = listCirculo;
 		
 		List<Cuadrado> listCuadrado = new ArrayList<>();
 		listCuadrado.add(new Cuadrado());
 		listCuadrado.add(new Cuadrado());
 		listCuadrado.add(new Cuadrado());
-		//showObjects(listFigura); //NO COMPILA
-		showUnbunded(listCuadrado); //SI COMPILA
+		List<?> list5 = listCuadrado;
 
 	}
 
-	private static void showObjects(List<Object> listObjects) {
-		for (Object o:listObjects)
-			System.out.println(o.getClass().getSimpleName());
-	}
-	
-	//Unbounded Wildcard ?  //Solo Lectura
-	private static void showUnbunded(List<?> listObjects) {
-		for (Object o:listObjects) {
-			//listObjects.add(new Object()); //Solo Lectura 
 
-			System.out.println(o.getClass().getSimpleName());
-			
-			if (o instanceof String) {
-				o = ((String)o).concat("*");
-				System.out.println(o);
-			}
-		}
-		System.out.println("************");
-	}
-	
 
 }
