@@ -19,6 +19,7 @@ Servers/
 */*/*/target
 **/.DS_Store
 .idea/
+**/*.iml
 
 # External tool builders
 .externalToolBuilders/
