@@ -1,4 +1,4 @@
-package com.curso.v3;
+package com.curso.v5;
 
 //           Suma IS-A       Operacion
 public class Suma implements Operacion {
