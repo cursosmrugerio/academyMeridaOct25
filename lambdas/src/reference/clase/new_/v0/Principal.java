@@ -1,4 +1,4 @@
-package reference.clase.new_;
+package reference.clase.new_.v0;
 
 import java.util.function.BiFunction;
 import java.util.function.Function;
@@ -13,16 +13,20 @@ class Empleado {
         this.name = name;
         this.salary = salary;
         this.edad = edad;
+        System.out.println("Constructor 3 Params");
     }
 
-    public Empleado(){}
+    public Empleado(){
+        this("SinNombre",100.0,18);
+        //super() ó this() //java24 Primera Linea
+    }
 
     public Empleado(String name) {
-        this.name = name;
+        this(name,100);
     }
     public Empleado(String name, double salary) {
-        this.name = name;
-        this.salary = salary;
+        this(name,salary,18); //INVOCA CONTRUCTOR 3 PARAMS
+        System.out.println("Constructor 2 Params");
     }
 
     @Override
@@ -51,7 +55,7 @@ public class Principal {
 
         System.out.println("***Method Reference***");
         Supplier<Empleado> supp2 = Empleado::new;
-        Empleado emp2 =  supp2.get();
+        Empleado emp2 = supp2.get();
         System.out.println(emp2);
 
         Function<String, Empleado> fun2 = Empleado::new;

@@ -1,4 +1,4 @@
-package reference.clase.new_;
+package reference.clase.new_.v1;
 
 @FunctionalInterface
 public interface TriFunction <T, U, V, R> {

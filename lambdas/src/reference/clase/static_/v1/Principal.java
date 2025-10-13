@@ -1,5 +1,6 @@
 package reference.clase.static_.v1;
 
+import java.util.function.DoubleUnaryOperator;
 import java.util.function.Supplier;
 import java.util.function.Function;
 import java.util.function.UnaryOperator;
@@ -50,6 +51,9 @@ public class Principal {
         UnaryOperator<Double> unaryOpe = x -> Math.cos(x);
         unaryOpe = Math::cos;
         System.out.println(unaryOpe.apply(10.0));
+
+        DoubleUnaryOperator duo = Math::cos;
+        System.out.println(duo.applyAsDouble(10.0));
 
     }
 }

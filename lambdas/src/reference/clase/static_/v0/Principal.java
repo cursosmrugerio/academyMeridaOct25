@@ -1,5 +1,6 @@
 package reference.clase.static_.v0;
 
+import java.util.function.IntSupplier;
 import java.util.function.Supplier;
 
 class Empleado {
@@ -24,10 +25,16 @@ public class Principal {
 
         //NO TE PASO NADA -> REGRESA UN int
         Supplier<Integer> sup = () -> Empleado.getContador();
-        System.out.println("Functional: "+sup.get()); //3
+        System.out.println("Lambda: "+sup.get()); //3
 
         Supplier<Integer> supMR = Empleado::getContador;
-        System.out.println("Functional Method Reference: "+supMR.get()); //3
+        System.out.println("Method Reference: "+supMR.get()); //3
+
+        IntSupplier intSup2 = () -> Empleado.getContador();
+        System.out.println("Lambda IntSupplier: "+intSup2.getAsInt()); //3
+
+        IntSupplier intSupMR = Empleado::getContador;
+        System.out.println("Method Reference IntSupplier: "+intSupMR.getAsInt());
 
     }
 }
