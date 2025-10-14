@@ -25,19 +25,24 @@ public class TestClass {
     }
     public static void main(String[] args) {
         List<String> fnames = Arrays.asList("a", "b", "c");
-        Tiger t = new Tiger();
-
-        //METHOD REFERENCE:  Object::methodInstancia
-        Carnivore c1 = (List<String> foods) -> foods.size() * 200;
-        process(fnames, c1);
-        process(fnames, t);
+        Tiger t = new Tiger(); //Tiger IS-A Carnivore
 
         //TAREA****
-        process(fnames, t::eat);
+        Carnivore carnivore = lista -> t.eat(lista); //LAMBDA
+        process(fnames,carnivore);
+        carnivore = t::eat; //METHOD REFERENCE
+        process(fnames,carnivore);
+        process(fnames, t);
+
+        //TIGER VERSION LAMBDA
+        Carnivore c = (List<String> foods) -> foods.size() * 200;
+        process(fnames, c);
 
         //METHOD REFERENCE: Object::methodInstancia
+        c = lista -> t.calories(lista);
         process(fnames, t::calories);
         //METHOD REFERENCE:  Class::methodStatic
+        c = lista -> TestClass.size(lista);
         process(fnames, TestClass::size);
         //METHOD REFERENCE:  Class::methodStatic
         //process(fnames, Carnivore::calories); //NO COMPILE
