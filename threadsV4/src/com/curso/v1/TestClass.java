@@ -1,4 +1,4 @@
-package com.curso.v0;
+package com.curso.v1;
 
 public class TestClass extends Thread {
 
@@ -9,6 +9,7 @@ public class TestClass extends Thread {
 
     @Override
     public void run() {
+        System.out.println(Thread.currentThread().getName());
         while (true) {
             workWithLocks();
             workWithoutLocks();
@@ -30,17 +31,26 @@ public class TestClass extends Thread {
     }
 
     void workWithoutLocks() {
-        if (i1 != i2) //LA LECTURA NO ESTA SINCRONIZADA
-            System.out.println("i"); //EN TEORIA ESTO NO DEBERIA DE PASAR
-        if (j1 != j2)
+        synchronized (lock1) {
+            if (i1 != i2)
+                System.out.println("i");
+        }
+        //if (j1 != j2)
             //System.out.println("j");
-        if (k1 != k2)
-            System.out.println("k");
+        synchronized (lock2) {
+            if (k1 != k2)
+                System.out.println("k");
+        }
     }
 
     public static void main(String[] args) {
+        System.out.println("Begin......");
         new TestClass().start(); //Thread1
         new TestClass().start(); //Thread2
+        new TestClass().start();
+        new TestClass().start();
+        new TestClass().start();
+        new TestClass().start();
     }
 }
 
