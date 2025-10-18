@@ -1,0 +1,9 @@
+package pizzaafV2.ingrediente;
+
+public class ReggianoCheese  implements Cheese {
+
+	public String toString() {
+		return "Reggiano Cheese";
+	}
+
+}
